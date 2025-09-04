@@ -1,0 +1,66 @@
+{% extends "Navbar.html" %}
+
+{% block title %}Sign Up - MarkQuick{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    background-color: #f0f2f5;
+  }
+  .signup-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  .signup-card h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .form-label {
+    font-weight: 500;
+  }
+  .btn-custom {
+    font-size: 18px;
+    border-radius: 8px;
+  }
+  #Tp
+  {
+    margin-top: 20vh;
+  }
+</style>
+
+<div class="d-flex justify-content-center align-items-center" id="Tp">
+  <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+    <div class="signup-card">
+      <h3 class="text-center">Create Account</h3>
+      <p class="text-center text-muted mb-4">Sign up to get started</p>
+
+      <form action="/signup" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter phone number" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Gmail</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Enter Gmail" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-danger w-100 btn-custom">Sign Up</button>
+      </form>
+
+      <p class="text-center mt-4 mb-0 small text-muted">
+        Already have an account? <a href="/login">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

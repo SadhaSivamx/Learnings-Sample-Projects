@@ -1,0 +1,40 @@
+{% extends "Navbar.html" %}
+
+{% block title %}Home | My Website{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh; position: relative;">
+    <div class="row w-100 justify-content-center align-items-center">
+        <!-- Left Image -->
+        <div class="col-sm-12 col-md-6 text-center">
+            <img src="{{ url_for('static', filename='left.png') }}" class="img-fluid rounded" alt="Left Food">
+        </div>
+
+        <!-- Right Image -->
+        <div class="col-sm-12 col-md-6 text-center">
+            <img src="{{ url_for('static', filename='right.png') }}" class="img-fluid rounded" alt="Right Food">
+        </div>
+    </div>
+
+    <!-- Overlay text in center -->
+    <div class="overlay-text text-center">
+        <h1 class="text-white">Order your foods</h1>
+        <a href="{{ url_for('order') }}" class="btn btn-danger mt-3">Order Now</a>
+    </div>
+</div>
+
+<style>
+    /* Center overlay text above images */
+    .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+    }
+
+    .overlay-text h1 {
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+</style>
+{% endblock %}

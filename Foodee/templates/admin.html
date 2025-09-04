@@ -1,0 +1,58 @@
+{% extends "Navbar.html" %}
+
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Manage Food Items</h2>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-danger">
+      <tr>
+        <th>ID</th>
+        <th>Food Name</th>
+        <th>Quantity</th>
+        <th>Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for food in foods %}
+      <tr>
+        <td>{{ food.id }}</td>
+        <td>{{ food.foodname }}</td>
+        <td>
+          <input type="number" id="qty-{{ food.id }}" value="{{ food.quantity }}" class="form-control" min="0">
+        </td>
+        <td>
+          <button class="btn btn-sm btn-danger update-btn" data-id="{{ food.id }}">Update</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".update-btn").click(function(){
+        const foodId = $(this).data("id");
+        const newQty = $("#qty-" + foodId).val();
+
+        $.ajax({
+            url: "/admin/update",
+            type: "POST",
+            data: JSON.stringify({ food_id: foodId, quantity: newQty }),
+            contentType: "application/json",
+            success: function(response){
+                alert("Quantity updated to " + response.new_quantity);
+            },
+            error: function(){
+                alert("Failed to update quantity!");
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "Navbar.html" %}
+
+{% block title %}Order Your'e Food{% endblock %}
+
+{% block content %}
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Order Your Food</h2>
+    <form action="{{ url_for('order') }}" method="POST">
+        <div class="row">
+            <!-- Pizza -->
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='pizza.png') }}" class="img-fluid" alt="Pizza">
+                <h5>Pizza</h5>
+                <input type="number" name="pizza_qty" min="0" class="form-control" placeholder="Quantity">
+            </div>
+            <!-- Burger -->
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='burger.png') }}" class="img-fluid" alt="Burger">
+                <h5>Burger</h5>
+                <input type="number" name="burger_qty" min="0" class="form-control" placeholder="Quantity">
+            </div>
+            <!-- Fries -->
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='fries.png') }}" class="img-fluid" alt="Fries">
+                <h5>Fries</h5>
+                <input type="number" name="fries_qty" min="0" class="form-control" placeholder="Quantity">
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <button type="submit" class="btn btn-danger">Buy</button>
+        </div>
+    </form>
+</div>
+</body>
+{% endblock %}

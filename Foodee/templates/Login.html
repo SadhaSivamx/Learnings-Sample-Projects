@@ -1,0 +1,57 @@
+{% extends "Navbar.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    background-color: #f0f2f5;
+  }
+  .login-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  .login-card h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .form-label {
+    font-weight: 500;
+  }
+  .btn-custom {
+    font-size: 18px;
+    border-radius: 8px;
+  }
+  #Tp
+  {
+    margin-top: 20vh;
+  }
+</style>
+
+<div class="d-flex justify-content-center align-items-center" id="Tp">
+  <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+    <div class="login-card">
+      <h3 class="text-center">Welcome to MarkQuick</h3>
+      <p class="text-center text-muted mb-4">Sign in to continue</p>
+
+      <form action="/login" method="post">
+        <div class="mb-3">
+          <label for="username" class="form-label">Email</label>
+          <input type="text" id="username" name="email" class="form-control" placeholder="Enter email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-danger w-100 btn-custom">Login</button>
+      </form>
+
+      <p class="text-center mt-4 mb-0 small text-muted">
+        Don’t have an account? <a href="/signup">Sign up</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

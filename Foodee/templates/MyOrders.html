@@ -1,0 +1,33 @@
+{% extends "Navbar.html" %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+<body class="container mt-5">
+  <h2 class="mb-4">Orders of {{ name }}</h2>
+  {% if orders %}
+    <table class="table table-bordered table-striped">
+      <thead class="table-danger">
+        <tr>
+          <th>Order ID</th>
+          <th>Item Name</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        {% if order.quantity>=1 %}
+            <tr>
+              <td>{{ order.id }}</td>
+              <td>{{ order.item_name }}</td>
+              <td>{{ order.quantity }}</td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No orders found.</p>
+  {% endif %}
+</body>
+{% endblock %}
